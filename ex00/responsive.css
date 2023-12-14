@@ -1,0 +1,17 @@
+table {
+	position: fixed;
+	width: 101vw;
+	height: 105vh;
+	border: 1px solid black;
+	border-collapse: collapse;
+	margin-top: -10px;
+	margin-left: -10px;
+}
+
+tr td {
+	width: 50%;
+	border: 1px solid;
+	font-size: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .balloon{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      border-radius: 50%; /* Make the borders rounded to create a circle */
+    }
+  </style>
+</head>
+<body>
+  <div class="balloon" onmouseover="balloonMouseOver()" onclick="changeBalloonSizeAndColor()"></div>
+
+  <script>
+    var balloon = document.querySelector(".balloon");
+    var colors = ["red", "green", "blue","black"];
+    var currentColorIndex = 0;
+    var currentSize = 200; // Initial size
+
+    function changeBalloonSizeAndColor() {
+      if (currentSize > 420) {
+        currentSize = 200; // Reset the size to the original value
+      } else {
+        currentSize += 10; // Increase size by 10px
+        if (currentColorIndex === colors.length - 1) {
+          currentColorIndex = 0;
+        } else {
+          currentColorIndex++;
+        }
+      }
+      var newColor = colors[currentColorIndex];
+      
+      balloon.style.width = currentSize + "px";
+      balloon.style.height = currentSize + "px";
+      balloon.style.backgroundColor = newColor;
+    }
+
+    function balloonMouseOver() {
+      currentSize -= 5; // Shrink the size by 5px
+      if (currentSize < 200) {
+        currentSize = 200; // Ensure the size doesn't go lower than 200px
+      }
+      if (currentColorIndex === 0) {
+        currentColorIndex = colors.length - 1;
+      } else {
+        currentColorIndex--;
+      }
+      var newColor = colors[currentColorIndex];
+      
+      balloon.style.width = currentSize + "px";
+      balloon.style.height = currentSize + "px";
+      balloon.style.backgroundColor = newColor;
+    }
+  </script>
+</body>
+</html>
